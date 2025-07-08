@@ -314,8 +314,8 @@ class XTDPCode(StrEnum):
     CUR_CURRENT2 = "cur_current2"  # Actual current2
     CUR_NEUTRAL = "cur_neutral"  # Total reverse energy
     CUR_POWER = "cur_power"    # Actual power
-    CUR_POWER1 = "cur_power1"  # Actual power1
-    CUR_POWER2 = "cur_power2"  # Actual power2
+    CUR_POWER_1 = "cur_power1"  # Actual power1
+    CUR_POWER_2 = "cur_power2"  # Actual power2
     CUR_VOLTAGE = "cur_voltage"    # Actual voltage
     CUR_VOLTAGE_1 = "cur_voltage1"  # Actual voltage1
     CUR_VOLTAGE_2 = "cur_voltage2"  # Actual voltage2    
