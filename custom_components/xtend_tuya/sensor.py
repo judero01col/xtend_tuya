@@ -493,22 +493,10 @@ ELECTRICITY_SENSORS: tuple[XTSensorEntityDescription, ...] = (
         translation_key="power_a",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
-    ),  
+    ),
     XTSensorEntityDescription(
         key=XTDPCode.POWER_B,
         translation_key="power_b",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-    ),
-    XTSensorEntityDescription(
-        key=XTDPCode.POWER_1,
-        translation_key="power_a",
-        device_class=SensorDeviceClass.POWER,
-        state_class=SensorStateClass.MEASUREMENT,
-    ),
-    XTSensorEntityDescription(
-        key=XTDPCode.POWER_2,
-        translation_key="power_a",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
     ),
