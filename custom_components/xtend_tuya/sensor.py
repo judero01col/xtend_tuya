@@ -408,6 +408,24 @@ CONSUMPTION_SENSORS: tuple[XTSensorEntityDescription, ...] = (
         state_class=SensorStateClass.TOTAL
     ),
     XTSensorEntityDescription(
+        key=XTDPCode.TODAY_ACC_ENERGY_1,
+        translation_key="today_acc_energy1",
+        device_class=SensorDeviceClass.ENERGY,
+        state_class=SensorStateClass.TOTAL
+    ),
+    XTSensorEntityDescription(
+        key=XTDPCode.TODAY_ACC_ENERGY_2,
+        translation_key="today_acc_energy2",
+        device_class=SensorDeviceClass.ENERGY,
+        state_class=SensorStateClass.TOTAL
+    ),
+    XTSensorEntityDescription(
+        key=XTDPCode.ALL_ENERGY,
+        translation_key="all_energy",
+        device_class=SensorDeviceClass.ENERGY,
+        state_class=SensorStateClass.TOTAL
+    ),
+    XTSensorEntityDescription(
         key=XTDPCode.TODAY_ENERGY_ADD_1,
         translation_key="today_energy_add1",
        device_class=SensorDeviceClass.ENERGY,
