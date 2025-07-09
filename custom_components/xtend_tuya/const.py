@@ -743,6 +743,13 @@ class XTDPCode(StrEnum):
     SYNC_RESPONSE = "sync_response"
     DEVICE_STATE_1 = "device_state1"
     ADD_ELE_1 = "add_ele1"
+    ADD_ELE_1_THIS_MONTH = "add_ele1_this_month"
+    ADD_ELE_1_THIS_YEAR = "add_ele1_this_year"
+    ADD_ELE_1_TODAY = "add_ele1_today"
+    ADD_ELE_2 = "add_ele2"
+    ADD_ELE_2_THIS_MONTH = "add_ele2_this_month"
+    ADD_ELE_2_THIS_YEAR = "add_ele2_this_year"
+    ADD_ELE_2_TODAY = "add_ele2_today"
     CUR_POWER_1 = "cur_power1"
     CUR_CURRENT_1 = "cur_current1"
     CUR_VOLTAGE_1 = "cur_voltage1"
@@ -977,9 +984,7 @@ TUYA_COUNTRIES = [
     Country("Saint Lucia", "1-758", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Saint Martin", "590", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Saint Pierre and Miquelon", "508", TuyaCloudOpenAPIEndpoint.EUROPE),
-    Country(
-        "Saint Vincent and the Grenadines", "1-784", TuyaCloudOpenAPIEndpoint.EUROPE
-    ),
+    Country("Saint Vincent and the Grenadines", "1-784", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Samoa", "685", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("San Marino", "378", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Sao Tome and Principe", "239", TuyaCloudOpenAPIEndpoint.AMERICA),
