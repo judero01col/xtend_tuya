@@ -141,14 +141,20 @@ class XTDPCode(StrEnum):
 
     https://developer.tuya.com/en/docs/iot/standarddescription?id=K9i5ql6waswzq
     """
+    DEVICE_STATE_1 = "device_state1"
+    DEVICE_STATE_2 = "device_state2"
     POWER_A = "power_a"
     POWER_B = "power_b"
+    CUR_POWER = "cur_power"    # Actual power
+    CUR_POWER_1 = "cur_power1"  # Actual power1
+    CUR_POWER_2 = "cur_power2"  # Actual power2
     DIRECTION_A="direction_a"
     DIRECTION_B="direction_b"
     VOLTAGE_A="voltage_a"
     CURRENT_A="current_a"
     CURRENT_B="current_b"
     POWER_FACTOR="power_factor"
+    POWER_FACTOR_A="power_factor_a"
     POWER_FACTOR_B="power_factor_b"
     ACHZ = "ACHZ"
     ACI = "ACI"
@@ -312,10 +318,7 @@ class XTDPCode(StrEnum):
     CUR_CURRENT = "cur_current"    # Actual current
     CUR_CURRENT1 = "cur_current1"  # Actual current1
     CUR_CURRENT2 = "cur_current2"  # Actual current2
-    CUR_NEUTRAL = "cur_neutral"  # Total reverse energy
-    CUR_POWER = "cur_power"    # Actual power
-    CUR_POWER_1 = "cur_power1"  # Actual power1
-    CUR_POWER_2 = "cur_power2"  # Actual power2
+    CUR_NEUTRAL = "cur_neutral"  # Total reverse energy   
     CUR_VOLTAGE = "cur_voltage"    # Actual voltage
     CUR_VOLTAGE_1 = "cur_voltage1"  # Actual voltage1
     CUR_VOLTAGE_2 = "cur_voltage2"  # Actual voltage2    
