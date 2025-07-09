@@ -57,6 +57,7 @@ LOCKS: dict[str, XTLockEntityDescription] = {
             key="",
             translation_key="operate_lock",
             unlock_status_list=[XTDPCode.LOCK_MOTOR_STATE],
+            
         ),
     "mk": XTLockEntityDescription(
             key="",
