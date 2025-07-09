@@ -141,20 +141,14 @@ class XTDPCode(StrEnum):
 
     https://developer.tuya.com/en/docs/iot/standarddescription?id=K9i5ql6waswzq
     """
-    DEVICE_STATE_1 = "device_state1"
-    DEVICE_STATE_2 = "device_state2"
     POWER_A = "power_a"
     POWER_B = "power_b"
-    CUR_POWER = "cur_power"    # Actual power
-    CUR_POWER_1 = "cur_power1"  # Actual power1
-    CUR_POWER_2 = "cur_power2"  # Actual power2
     DIRECTION_A="direction_a"
     DIRECTION_B="direction_b"
     VOLTAGE_A="voltage_a"
     CURRENT_A="current_a"
     CURRENT_B="current_b"
     POWER_FACTOR="power_factor"
-    POWER_FACTOR_A="power_factor_a"
     POWER_FACTOR_B="power_factor_b"
     ACHZ = "ACHZ"
     ACI = "ACI"
@@ -167,10 +161,6 @@ class XTDPCode(StrEnum):
     ADD_ELE_THIS_MONTH = "add_ele_this_month"
     ADD_ELE_THIS_YEAR = "add_ele_this_year"
     ADD_ELE_TODAY = "add_ele_today"
-    ADD_ELE1 = "add_ele1" #Added watt since last heartbeat
-    ADD_ELE1_THIS_MONTH = "add_ele1_this_month"
-    ADD_ELE1_THIS_YEAR = "add_ele1_this_year"
-    ADD_ELE1_TODAY = "add_ele_today"
     ADD_ELE2 = "add_ele2" #Added watt since last heartbeat
     ADD_ELE2_THIS_MONTH = "add_ele2_this_month"
     ADD_ELE2_THIS_YEAR = "add_ele2_this_year"
@@ -315,26 +305,10 @@ class XTDPCode(StrEnum):
     CURRENTB = "CurrentB"
     CURRENTC = "CurrentC"
     CURRENT_YD = "current_yd"
-    CUR_CURRENT = "cur_current"    # Actual current
-    CUR_CURRENT_1 = "cur_current1"  # Actual current1
-    CUR_CURRENT_2 = "cur_current2"  # Actual current2
-    CUR_NEUTRAL = "cur_neutral"  # Total reverse energy   
-    CUR_VOLTAGE = "cur_voltage"    # Actual voltage
-    CUR_VOLTAGE_1 = "cur_voltage1"  # Actual voltage1
-    CUR_VOLTAGE_2 = "cur_voltage2"  # Actual voltage2    
-    TOTAL_ENERGY = "total_energy"    # Total energy
-    TOTAL_ENERGY_1 = "total_energy1"  # Total energy 1
-    TOTAL_ENERGY_2 = "total_energy2"  # Total energy 2
-    TODAY_ACC_ENERGY = "today_acc_energy"    # today acc energy
-    TODAY_ACC_ENERGY_1 = "today_acc_energy1"  # today acc energy 1
-    TODAY_ACC_ENERGY_2 = "today_acc_energy2"  # today acc energy 2
-    POWER_TYPE  = "power_type"   # power type
-    POWER_TYPE_1 = "power_type1"  # power type 1
-    POWER_TYPE_2 = "power_type2"  # power type 2
-    TODAY_ENERGY_ADD  = "today_energy_add"   # today energy add
-    TODAY_ENERGY_ADD_1 = "today_energy_add1"  # today energy add 1
-    TODAY_ENERGY_ADD_2 = "today_energy_add2"  # today energy add 2
-    ALL_ENERGY  = "all_energy"   # today energy add
+    CUR_CURRENT = "cur_current"  # Actual current
+    CUR_NEUTRAL = "cur_neutral"  # Total reverse energy
+    CUR_POWER = "cur_power"  # Actual power
+    CUR_VOLTAGE = "cur_voltage"  # Actual voltage
     C_CURRENT = "C_Current"
     C_VOLTAGE = "C_Voltage"
     DECIBEL_SENSITIVITY = "decibel_sensitivity"
@@ -765,6 +739,30 @@ class XTDPCode(StrEnum):
     WORK_STATUS = "WorkStatus"
     XT_COVER_INVERT_CONTROL = "xt_cover_invert_control"
     XT_COVER_INVERT_STATUS = "xt_cover_invert_status"
+    SYNC_REQUEST = "sync_request"
+    SYNC_RESPONSE = "sync_response"
+    DEVICE_STATE_1 = "device_state1"
+    ADD_ELE_1 = "add_ele1"
+    CUR_POWER_1 = "cur_power1"
+    CUR_CURRENT_1 = "cur_current1"
+    CUR_VOLTAGE_1 = "cur_voltage1"
+    TOTAL_ENERGY_1 = "total_energy1"
+    TODAY_ACC_ENERGY_1 = "today_acc_energy1"
+    POWER_TYPE_1 = "power_type1"
+    WARN_POWER_1 = "warn_power1"
+    TODAY_ENERGY_ADD_1 = "today_energy_add1"
+    DEVICE_STATE_2 = "device_state2"
+    CUR_POWER_2 = "cur_power2"
+    CUR_CURRENT_2 = "cur_current2"
+    CUR_VOLTAGE_2 = "cur_voltage2"
+    TOTAL_ENERGY_2 = "total_energy2"
+    TODAY_ACC_ENERGY_2 = "today_acc_energy2"
+    POWER_TYPE_2 = "power_type2"
+    WARN_POWER_2 = "warn_power2"
+    TODAY_ENERGY_ADD_2 = "today_energy_add2"
+    ALL_ENERGY = "all_energy"
+    NET_STATE = "net_state"
+
 
 @dataclass
 class Country:
