@@ -363,6 +363,18 @@ CONSUMPTION_SENSORS: tuple[XTSensorEntityDescription, ...] = (
         state_class=SensorStateClass.TOTAL
     ),
     XTSensorEntityDescription(
+        key=XTDPCode.TOTAL_ENERGY_1,
+        translation_key="total_energy1",
+        device_class=SensorDeviceClass.ENERGY,
+        state_class=SensorStateClass.TOTAL
+    ),
+    XTSensorEntityDescription(
+        key=XTDPCode.TOTAL_ENERGY_2,
+        translation_key="total_energy2",
+        device_class=SensorDeviceClass.ENERGY,
+        state_class=SensorStateClass.TOTAL
+    ),
+    XTSensorEntityDescription(
         key=XTDPCode.ENERGYCONSUMEDC,
         translation_key="energyconsumedc",
         device_class=SensorDeviceClass.ENERGY,
@@ -568,9 +580,33 @@ ELECTRICITY_SENSORS: tuple[XTSensorEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.CURRENT,
     ),
+     XTSensorEntityDescription(
+        key=XTDPCode.CUR_CURRENT_1,
+        translation_key="cur_current1",
+        state_class=SensorStateClass.MEASUREMENT,
+        device_class=SensorDeviceClass.CURRENT,
+    ),
+    XTSensorEntityDescription(
+        key=XTDPCode.CUR_CURRENT_2,
+        translation_key="cur_current2",
+        state_class=SensorStateClass.MEASUREMENT,
+        device_class=SensorDeviceClass.CURRENT,
+    ),
     XTSensorEntityDescription(
         key=XTDPCode.VOLTAGE_A,
         translation_key="voltage_a",
+        state_class=SensorStateClass.MEASUREMENT,
+        device_class=SensorDeviceClass.VOLTAGE,
+    ),
+     XTSensorEntityDescription(
+        key=XTDPCode.CUR_VOLTAGE_1,
+        translation_key="cur_voltage1",
+        state_class=SensorStateClass.MEASUREMENT,
+        device_class=SensorDeviceClass.VOLTAGE,
+    ),
+      XTSensorEntityDescription(
+        key=XTDPCode.CUR_VOLTAGE_2,
+        translation_key="cur_voltage2",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLTAGE,
     ),
@@ -695,7 +731,7 @@ ELECTRICITY_SENSORS: tuple[XTSensorEntityDescription, ...] = (
         translation_key="c_voltage",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.VOLTAGE,
-    ),
+    ),   
     XTSensorEntityDescription(
         key=XTDPCode.DEVICEKW,
         translation_key="device_power",
