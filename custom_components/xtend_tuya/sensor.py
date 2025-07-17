@@ -1013,6 +1013,11 @@ LOCK_SENSORS: tuple[XTSensorEntityDescription, ...] = (
         translation_key="jtmspro_closed_opened",
         entity_registry_enabled_default=True,
     ),
+    XTSensorEntityDescription(
+        key=XTDPCode.OPEN_INSIDE,
+        translation_key="open_inside",
+        entity_registry_enabled_default=True,
+    ),
 )
     
 # All descriptions can be found here. Mostly the Integer data types in the
