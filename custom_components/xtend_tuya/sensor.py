@@ -979,6 +979,12 @@ LOCK_SENSORS: tuple[XTSensorEntityDescription, ...] = (
         reset_after_x_seconds=2,
     ),
     XTSensorEntityDescription(
+        key=XTDPCode.UNLOCK_TEMPORARY,
+        translation_key="unlock_temporary",
+        entity_registry_enabled_default=True,
+        reset_after_x_seconds=2,
+    ),
+    XTSensorEntityDescription(
         key=XTDPCode.UNLOCK_CARD,
         translation_key="unlock_card",
         entity_registry_enabled_default=True,
