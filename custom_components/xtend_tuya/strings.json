@@ -1338,6 +1338,12 @@
       "unlock_password": {
         "name": "Password unlock user"
       },
+      "unlock_temporary": {
+        "name": "unlock temporary user"
+      },
+      "open_inside": {
+        "name": "Open Inside"
+      },
       "flow_velocity": {
         "name": "Flow speed"
       },
