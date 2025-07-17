@@ -1,11 +1,9 @@
 from __future__ import annotations
+import custom_components.xtend_tuya.multi_manager.multi_manager as mm
 
-from ..multi_manager import (
-    MultiManager,
-)
 
 class MultiMQTTQueue:
-    def __init__(self, multi_manager: MultiManager) -> None:
+    def __init__(self, multi_manager: mm.MultiManager) -> None:
         self.multi_manager = multi_manager
 
     def stop(self) -> None:

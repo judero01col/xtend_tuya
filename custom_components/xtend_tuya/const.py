@@ -1,19 +1,11 @@
 """Constants for the Tuya integration."""
 
 from __future__ import annotations
-
 from dataclasses import dataclass, field
 from enum import StrEnum, IntFlag, IntEnum
 import logging
-
-from tuya_iot import TuyaCloudOpenAPIEndpoint
-
 from homeassistant.const import (
     Platform,
-)
-
-from .ha_tuya_integration.tuya_integration_imports import (
-    TuyaDPType as DPType
 )
 
 DOMAIN = "xtend_tuya"
@@ -26,7 +18,7 @@ CONF_TERMINAL_ID = "terminal_id"
 CONF_TOKEN_INFO = "token_info"
 CONF_USER_CODE = "user_code"
 CONF_USERNAME = "username"
-#OpenTuya specific conf
+# OpenTuya specific conf
 CONF_NO_OPENAPI = "no_openapi"
 CONF_ENDPOINT_OT = "endpoint"
 CONF_AUTH_TYPE = "auth_type"
@@ -49,7 +41,7 @@ TUYA_RESPONSE_MSG = "msg"
 TUYA_RESPONSE_QR_CODE = "qrcode"
 TUYA_RESPONSE_RESULT = "result"
 TUYA_RESPONSE_SUCCESS = "success"
-#OpenTuya specific
+# OpenTuya specific
 TUYA_RESPONSE_PLATFORM_URL = "platform_url"
 TUYA_SMART_APP = "tuyaSmart"
 SMARTLIFE_APP = "smartlife"
@@ -58,6 +50,36 @@ MESSAGE_SOURCE_TUYA_IOT = "tuya_iot"
 MESSAGE_SOURCE_TUYA_SHARING = "tuya_sharing"
 
 CROSS_CATEGORY_DEVICE_DESCRIPTOR: str = "cross_category_device_descriptor"
+
+
+class TuyaCloudOpenAPIEndpoint(StrEnum):
+    """Tuya Cloud Open API Endpoint."""
+
+    AMERICA = "https://openapi.tuyaus.com"
+    CHINA = "https://openapi.tuyacn.com"
+    EUROPE = "https://openapi.tuyaeu.com"
+    INDIA = "https://openapi.tuyain.com"
+    SINGAPORE = "https://openapi-sg.iotbing.com"
+    AMERICA_AZURE = "https://openapi-ueaz.tuyaus.com"
+    EUROPE_MS = "https://openapi-weaz.tuyaeu.com"
+
+    def get_human_name(self, value: str) -> str:
+        match value:
+            case TuyaCloudOpenAPIEndpoint.CHINA:
+                return "China"
+            case TuyaCloudOpenAPIEndpoint.AMERICA_AZURE:
+                return "America (Business)"
+            case TuyaCloudOpenAPIEndpoint.EUROPE:
+                return "Europe"
+            case TuyaCloudOpenAPIEndpoint.EUROPE_MS:
+                return "Europe (Business)"
+            case TuyaCloudOpenAPIEndpoint.INDIA:
+                return "India"
+            case TuyaCloudOpenAPIEndpoint.SINGAPORE:
+                return "Singapore"
+            case _:
+                return "America"
+
 
 PLATFORMS = [
     Platform.ALARM_CONTROL_PANEL,
@@ -80,52 +102,66 @@ PLATFORMS = [
     Platform.VACUUM,
 ]
 
+
 class AllowedPlugins:
     @staticmethod
     def get_plugins_to_load() -> list[str]:
         return [MESSAGE_SOURCE_TUYA_SHARING, MESSAGE_SOURCE_TUYA_IOT]
 
+
 class VirtualStates(IntFlag):
     """Virtual states"""
-    STATE_COPY_TO_MULTIPLE_STATE_NAME           = 0X0001   #Copy the state so that it can be used with other virtual states
-    STATE_SUMMED_IN_REPORTING_PAYLOAD           = 0X0002   #Spoof the state value to make it a total instead of an incremental value
+
+    STATE_COPY_TO_MULTIPLE_STATE_NAME = (
+        0x0001  # Copy the state so that it can be used with other virtual states
+    )
+    STATE_SUMMED_IN_REPORTING_PAYLOAD = 0x0002  # Spoof the state value to make it a total instead of an incremental value
+
 
 class VirtualFunctions(IntFlag):
     """Virtual functions"""
-    FUNCTION_RESET_STATE                        = 0X0001   #Reset the specified states
+
+    FUNCTION_RESET_STATE = 0x0001  # Reset the specified states
+
 
 class XTDeviceEntityFunctions(StrEnum):
-    """ Functions that can be called from the device entity to alter the state of the device """
-    RECALCULATE_PERCENT_SCALE                   = "recalculate_percent_scale"
+    """Functions that can be called from the device entity to alter the state of the device"""
+
+    RECALCULATE_PERCENT_SCALE = "recalculate_percent_scale"
+
 
 class XTMultiManagerProperties(StrEnum):
-    LOCK_DEVICE_ID                              = "lock_device_id"
+    LOCK_DEVICE_ID = "lock_device_id"
 
-#Defines the priority of the sources for the merging process
-#In case of conflict take the data from the lowest priority
+
+# Defines the priority of the sources for the merging process
+# In case of conflict take the data from the lowest priority
 class XTDeviceSourcePriority(IntEnum):
-    REGULAR_TUYA    = 10
-    TUYA_SHARED     = 20
-    TUYA_IOT        = 30
+    REGULAR_TUYA = 10
+    TUYA_SHARED = 20
+    TUYA_IOT = 30
+
 
 @dataclass
 class DescriptionVirtualState:
     """Describes the VirtualStates linked to a specific Description Key."""
-    
+
     key: str
     virtual_state_name: str
     virtual_state_value: VirtualStates | None = None
     vs_copy_to_state: list[XTDPCode] = field(default_factory=list)
     vs_copy_delta_to_state: list[XTDPCode] = field(default_factory=list)
 
+
 @dataclass
 class DescriptionVirtualFunction:
     """Describes the VirtualFunctions linked to a specific Description Key."""
-    
+
     key: str
     virtual_function_name: str
     virtual_function_value: VirtualFunctions | None = None
     vf_reset_state: list[XTDPCode] = field(default_factory=list)
+
 
 class WorkMode(StrEnum):
     """Work modes."""
@@ -141,15 +177,8 @@ class XTDPCode(StrEnum):
 
     https://developer.tuya.com/en/docs/iot/standarddescription?id=K9i5ql6waswzq
     """
-    POWER_A = "power_a"
-    POWER_B = "power_b"
-    DIRECTION_A="direction_a"
-    DIRECTION_B="direction_b"
-    VOLTAGE_A="voltage_a"
-    CURRENT_A="current_a"
-    CURRENT_B="current_b"
-    POWER_FACTOR="power_factor"
-    POWER_FACTOR_B="power_factor_b"
+
+    ACCESSORY_LOCK = "accessory_lock"
     ACHZ = "ACHZ"
     ACI = "ACI"
     ACTIVEPOWER = "ActivePower"
@@ -157,11 +186,11 @@ class XTDPCode(StrEnum):
     ACTIVEPOWERB = "ActivePowerB"
     ACTIVEPOWERC = "ActivePowerC"
     ACV = "ACV"
-    ADD_ELE = "add_ele" #Added watt since last heartbeat
+    ADD_ELE = "add_ele"  # Added watt since last heartbeat
     ADD_ELE_THIS_MONTH = "add_ele_this_month"
     ADD_ELE_THIS_YEAR = "add_ele_this_year"
     ADD_ELE_TODAY = "add_ele_today"
-    ADD_ELE2 = "add_ele2" #Added watt since last heartbeat
+    ADD_ELE2 = "add_ele2"  # Added watt since last heartbeat
     ADD_ELE2_THIS_MONTH = "add_ele2_this_month"
     ADD_ELE2_THIS_YEAR = "add_ele2_this_year"
     ADD_ELE2_TODAY = "add_ele2_today"
@@ -222,6 +251,7 @@ class XTDPCode(StrEnum):
     B_VOLTAGE = "B_Voltage"
     B_SENSITIVITY = "b_sensitivity"
     C_F = "c_f"  # Temperature unit switching
+    C_F_ = "C_F_"  # Temperature unit switching
     CALIBRATION = "calibration"
     CAPACITY_CALIBRATION = "capacity_calibration"
     CAT_WEIGHT = "cat_weight"
@@ -231,18 +261,18 @@ class XTDPCode(StrEnum):
     CH4_SENSOR_STATE = "ch4_sensor_state"
     CH4_SENSOR_VALUE = "ch4_sensor_value"
     # Channel data points for multi-sensor devices
-    CH_0 = "ch_0"           # Channel 0 sensor data
-    CH_1 = "ch_1"           # Channel 1 sensor data
-    CH_2 = "ch_2"           # Channel 2 sensor data
-    CH_3 = "ch_3"           # Channel 3 sensor data
-    CH_4 = "ch_4"           # Channel 4 sensor data
-    CH_5 = "ch_5"           # Channel 5 sensor data
-    CH_6 = "ch_6"           # Channel 6 sensor data
-    CH_7 = "ch_7"           # Channel 7 sensor data
-    CH_8 = "ch_8"           # Channel 8 sensor data
-    CH_9 = "ch_9"           # Channel 9 sensor data
-    CH_PARA = "ch_para"     # Channel parameters
-    CH_CFG = "ch_cfg"       # Channel configuration
+    CH_0 = "ch_0"  # Channel 0 sensor data
+    CH_1 = "ch_1"  # Channel 1 sensor data
+    CH_2 = "ch_2"  # Channel 2 sensor data
+    CH_3 = "ch_3"  # Channel 3 sensor data
+    CH_4 = "ch_4"  # Channel 4 sensor data
+    CH_5 = "ch_5"  # Channel 5 sensor data
+    CH_6 = "ch_6"  # Channel 6 sensor data
+    CH_7 = "ch_7"  # Channel 7 sensor data
+    CH_8 = "ch_8"  # Channel 8 sensor data
+    CH_9 = "ch_9"  # Channel 9 sensor data
+    CH_PARA = "ch_para"  # Channel parameters
+    CH_CFG = "ch_cfg"  # Channel configuration
     CHARGE_CUR_SET = "charge_cur_set"
     CHARGE_ENERGY = "charge_energy"
     CHARGE_ENERGY_ONCE = "charge_energy_once"
@@ -304,6 +334,8 @@ class XTDPCode(StrEnum):
     CURRENTA = "CurrentA"
     CURRENTB = "CurrentB"
     CURRENTC = "CurrentC"
+    CURRENT_A = "current_a"
+    CURRENT_B = "current_b"
     CURRENT_YD = "current_yd"
     CUR_CURRENT = "cur_current"  # Actual current
     CUR_NEUTRAL = "cur_neutral"  # Total reverse energy
@@ -331,6 +363,8 @@ class XTDPCode(StrEnum):
     DEVICETEMP = "DeviceTemp"
     DEVICETEMP2 = "DeviceTemp2"
     DEVICE_MODE = "device_mode"
+    DIRECTION_A = "direction_a"
+    DIRECTION_B = "direction_b"
     DISINFECTION = "disinfection"
     DO_NOT_DISTURB = "do_not_disturb"
     DOORBELL_VOLUME = "doorbell_volume"
@@ -380,6 +414,8 @@ class XTDPCode(StrEnum):
     GAS_SENSOR_STATE = "gas_sensor_state"
     GAS_SENSOR_STATUS = "gas_sensor_status"
     GAS_SENSOR_VALUE = "gas_sensor_value"
+    GET_HUM = "get_hum"
+    GET_TEMP = "get_temp"
     HEART_RATE = "heart_rate"
     HISTORY = "History"
     HOLD_SENSITIVITY = "hold_sensitivity"
@@ -420,6 +456,7 @@ class XTDPCode(StrEnum):
     LIQUID_STATE = "liquid_state"
     LOCK = "lock"  # Lock / Child lock
     LOCK_MOTOR_STATE = "lock_motor_state"
+    LOCK_RECORD = "lock_record"
     MASTER_MODE = "master_mode"  # alarm mode
     MACH_OPERATE = "mach_operate"
     MAGNETNUM = "magnetNum"
@@ -436,6 +473,7 @@ class XTDPCode(StrEnum):
     MINI_SET = "mini_set"
     MONITORING = "monitoring"
     MODE = "mode"  # Working mode / Mode
+    MODE1 = "mode1"  # Working mode / Mode
     MODE2 = "Mode"
     MOODLIGHTING = "moodlighting"  # Mood light
     MOTION_RECORD = "motion_record"
@@ -495,12 +533,16 @@ class XTDPCode(StrEnum):
     POWDER_SET = "powder_set"  # Powder
     POWER = "power"
     POWER2 = "Power"
+    POWER_A = "power_a"
+    POWER_B = "power_b"
     POWERFACTORA = "PowerFactorA"
     POWERFACTORB = "PowerFactorB"
     POWERFACTORC = "PowerFactorC"
     POWERON = "poweron"
     POWERONOFF = "PowerOnOff"
     POWER_CONSUMPTION = "power_consumption"
+    POWER_FACTOR = "power_factor"
+    POWER_FACTOR_B = "power_factor_b"
     POWER_GO = "power_go"
     POWER_SET = "power_set"
     POWER_TOTAL = "power_total"
@@ -679,12 +721,19 @@ class XTDPCode(StrEnum):
     TVOC = "tvoc"
     UNIT = "unit"
     UNIT2 = "Unit"
+    UNLOCK_BLE = "unlock_ble"
     UNLOCK_CARD = "unlock_card"
+    UNLOCK_KEY = "unlock_key"
     UNLOCK_FACE = "unlock_face"
     UNLOCK_FINGERPRINT = "unlock_fingerprint"
     UNLOCK_FINGER_VEIN = "unlock_finger_vein"
     UNLOCK_HAND = "unlock_hand"
+    UNLOCK_METHOD_CREATE = "unlock_method_create"
+    UNLOCK_METHOD_DELETE = "unlock_method_delete"
+    UNLOCK_METHOD_MODIFY = "unlock_method_modify"
     UNLOCK_PASSWORD = "unlock_password"
+    UNLOCK_PHONE_REMOTE = "unlock_phone_remote"
+    UNLOCK_VOICE_REMOTE = "unlock_voice_remote"
     UPPER_TEMP = "upper_temp"
     UPPER_TEMP_F = "upper_temp_f"
     USAGE_TIMES = "usage_times"
@@ -712,6 +761,7 @@ class XTDPCode(StrEnum):
     VOLTAGEA = "VoltageA"
     VOLTAGEB = "VoltageB"
     VOLTAGEC = "VoltageC"
+    VOLTAGE_A = "voltage_a"
     VOLTAGE_CURRENT = "voltage_current"
     WAKEUP = "wakeup"
     WARM = "warm"  # Heat preservation
@@ -727,9 +777,13 @@ class XTDPCode(StrEnum):
     WEATHER_DELAY = "weather_delay"
     WEATHER_SWITCH = "weather_switch"
     WET = "wet"  # Humidification
+    WINDSHAKE = "windshake"
+    WINDSHAKE1 = "windshake1"
+    WINDSHAKEH = "windshakeH"
     WINDOW_CHECK = "window_check"
     WINDOW_STATE = "window_state"
     WINDSPEED = "windspeed"
+    WINDSPEED1 = "windspeed1"
     WIRELESS_BATTERYLOCK = "wireless_batterylock"
     WIRELESS_ELECTRICITY = "wireless_electricity"
     WORK_MODE = "work_mode"  # Working mode
@@ -739,57 +793,6 @@ class XTDPCode(StrEnum):
     WORK_STATUS = "WorkStatus"
     XT_COVER_INVERT_CONTROL = "xt_cover_invert_control"
     XT_COVER_INVERT_STATUS = "xt_cover_invert_status"
-    # cz
-    SYNC_REQUEST = "sync_request"
-    SYNC_RESPONSE = "sync_response"
-    DEVICE_STATE_1 = "device_state1"
-    DEVICE_STATE_2 = "device_state2"
-    ADD_ELE_1 = "add_ele1"
-    ADD_ELE_2 = "add_ele2"
-    ADD_ELE_1_THIS_MONTH = "add_ele1_this_month"
-    ADD_ELE_2_THIS_MONTH = "add_ele2_this_month"
-    ADD_ELE_1_THIS_YEAR = "add_ele1_this_year"
-    ADD_ELE_2_THIS_YEAR = "add_ele2_this_year"
-    ADD_ELE_1_TODAY = "add_ele1_today"
-    ADD_ELE_2_TODAY = "add_ele2_today"
-    CUR_POWER_1 = "cur_power1"
-    CUR_POWER_2 = "cur_power2"
-    CUR_CURRENT_1 = "cur_current1"
-    CUR_CURRENT_2 = "cur_current2"
-    CUR_VOLTAGE_1 = "cur_voltage1"
-    CUR_VOLTAGE_2 = "cur_voltage2"
-    TOTAL_ENERGY_1 = "total_energy1"
-    TOTAL_ENERGY_2 = "total_energy2"
-    TODAY_ACC_ENERGY_1 = "today_acc_energy1"
-    TODAY_ACC_ENERGY_2 = "today_acc_energy2"
-    POWER_TYPE_1 = "power_type1"
-    POWER_TYPE_2 = "power_type2"
-    WARN_POWER_1 = "warn_power1"
-    WARN_POWER_2 = "warn_power2"
-    TODAY_ENERGY_ADD_1 = "today_energy_add1"
-    TODAY_ENERGY_ADD_2 = "today_energy_add2"    
-    ALL_ENERGY = "all_energy"
-    NET_STATE = "net_state"
-    # jtmspro
-    UNLOCK_TEMPORARY = "unlock_temporary"
-    UNLOCK_KEY = "unlock_key"
-    UNLOCK_REQUEST = "unlock_request"
-    ARMING_SWITCH = "arming_switch"
-    UNLOCK_APP = "unlock_app"
-    OPEN_INSIDE = "open_inside"
-    DOORBELL = "doorbell"
-    UPDATE_ALL_FINGER = "update_all_finger"
-    UPDATE_ALL_PASSWORD = "update_all_password"
-    UPDATE_ALL_CARD = "update_all_card"
-    UPDATE_ALL_FACE = "update_all_face"
-    UPDATE_ALL_HAND = "update_all_hand"
-    UPDATE_ALL_FIN_VEIN = "update_all_fin_vein"
-    UNLOCK_OFFLINE_PD = "unlock_offline_pd"
-    UNLOCK_OFFLINE_CLEAR = "unlock_offline_clear"
-    REMOTE_NO_PD_SETKEY = "remote_no_pd_setkey"
-    LOCK_RECORD = "lock_record"
-    LOCAL_CAPACITY_LINK = "local_capacity_link"
-    LOCK_LOCAL_RECORD = "lock_local_record"
 
 
 @dataclass
@@ -834,11 +837,11 @@ TUYA_COUNTRIES = [
     Country("Brazil", "55", TuyaCloudOpenAPIEndpoint.AMERICA),
     Country("British Indian Ocean Territory", "246", TuyaCloudOpenAPIEndpoint.AMERICA),
     Country("British Virgin Islands", "1-284", TuyaCloudOpenAPIEndpoint.EUROPE),
-    Country("Brunei", "673", TuyaCloudOpenAPIEndpoint.EUROPE),
+    Country("Brunei", "673", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Bulgaria", "359", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Burkina Faso", "226", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Burundi", "257", TuyaCloudOpenAPIEndpoint.EUROPE),
-    Country("Cambodia", "855", TuyaCloudOpenAPIEndpoint.EUROPE),
+    Country("Cambodia", "855", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Cameroon", "237", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Canada", "1", TuyaCloudOpenAPIEndpoint.AMERICA),
     Country("Capo Verde", "238", TuyaCloudOpenAPIEndpoint.EUROPE),
@@ -863,7 +866,7 @@ TUYA_COUNTRIES = [
     Country("Djibouti", "253", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Dominica", "1-767", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Dominican Republic", "1-809", TuyaCloudOpenAPIEndpoint.AMERICA),
-    Country("East Timor", "670", TuyaCloudOpenAPIEndpoint.AMERICA),
+    Country("East Timor", "670", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Ecuador", "593", TuyaCloudOpenAPIEndpoint.AMERICA),
     Country("Egypt", "20", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("El Salvador", "503", TuyaCloudOpenAPIEndpoint.EUROPE),
@@ -894,11 +897,11 @@ TUYA_COUNTRIES = [
     Country("Guyana", "592", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Haiti", "509", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Honduras", "504", TuyaCloudOpenAPIEndpoint.EUROPE),
-    Country("Hong Kong", "852", TuyaCloudOpenAPIEndpoint.AMERICA),
+    Country("Hong Kong", "852", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Hungary", "36", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Iceland", "354", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("India", "91", TuyaCloudOpenAPIEndpoint.INDIA),
-    Country("Indonesia", "62", TuyaCloudOpenAPIEndpoint.AMERICA),
+    Country("Indonesia", "62", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Iran", "98"),
     Country("Iraq", "964", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Ireland", "353", TuyaCloudOpenAPIEndpoint.EUROPE),
@@ -916,7 +919,7 @@ TUYA_COUNTRIES = [
     Country("Kosovo", "383"),
     Country("Kuwait", "965", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Kyrgyzstan", "996", TuyaCloudOpenAPIEndpoint.EUROPE),
-    Country("Laos", "856", TuyaCloudOpenAPIEndpoint.EUROPE),
+    Country("Laos", "856", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Latvia", "371", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Lebanon", "961", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Lesotho", "266", TuyaCloudOpenAPIEndpoint.EUROPE),
@@ -925,11 +928,11 @@ TUYA_COUNTRIES = [
     Country("Liechtenstein", "423", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Lithuania", "370", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Luxembourg", "352", TuyaCloudOpenAPIEndpoint.EUROPE),
-    Country("Macao", "853", TuyaCloudOpenAPIEndpoint.AMERICA),
+    Country("Macao", "853", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Macedonia", "389", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Madagascar", "261", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Malawi", "265", TuyaCloudOpenAPIEndpoint.EUROPE),
-    Country("Malaysia", "60", TuyaCloudOpenAPIEndpoint.AMERICA),
+    Country("Malaysia", "60", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Maldives", "960", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Mali", "223", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Malta", "356", TuyaCloudOpenAPIEndpoint.EUROPE),
@@ -946,7 +949,7 @@ TUYA_COUNTRIES = [
     Country("Montserrat", "1-664", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Morocco", "212", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Mozambique", "258", TuyaCloudOpenAPIEndpoint.EUROPE),
-    Country("Myanmar", "95", TuyaCloudOpenAPIEndpoint.AMERICA),
+    Country("Myanmar", "95", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Namibia", "264", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Nauru", "674", TuyaCloudOpenAPIEndpoint.AMERICA),
     Country("Nepal", "977", TuyaCloudOpenAPIEndpoint.EUROPE),
@@ -966,10 +969,10 @@ TUYA_COUNTRIES = [
     Country("Palau", "680", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Palestine", "970", TuyaCloudOpenAPIEndpoint.AMERICA),
     Country("Panama", "507", TuyaCloudOpenAPIEndpoint.EUROPE),
-    Country("Papua New Guinea", "675", TuyaCloudOpenAPIEndpoint.AMERICA),
+    Country("Papua New Guinea", "675", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Paraguay", "595", TuyaCloudOpenAPIEndpoint.AMERICA),
     Country("Peru", "51", TuyaCloudOpenAPIEndpoint.AMERICA),
-    Country("Philippines", "63", TuyaCloudOpenAPIEndpoint.AMERICA),
+    Country("Philippines", "63", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Pitcairn", "64"),
     Country("Poland", "48", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Portugal", "351", TuyaCloudOpenAPIEndpoint.EUROPE),
@@ -986,7 +989,9 @@ TUYA_COUNTRIES = [
     Country("Saint Lucia", "1-758", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Saint Martin", "590", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Saint Pierre and Miquelon", "508", TuyaCloudOpenAPIEndpoint.EUROPE),
-    Country("Saint Vincent and the Grenadines", "1-784", TuyaCloudOpenAPIEndpoint.EUROPE),
+    Country(
+        "Saint Vincent and the Grenadines", "1-784", TuyaCloudOpenAPIEndpoint.EUROPE
+    ),
     Country("Samoa", "685", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("San Marino", "378", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Sao Tome and Principe", "239", TuyaCloudOpenAPIEndpoint.AMERICA),
@@ -995,11 +1000,11 @@ TUYA_COUNTRIES = [
     Country("Serbia", "381", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Seychelles", "248", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Sierra Leone", "232", TuyaCloudOpenAPIEndpoint.EUROPE),
-    Country("Singapore", "65", TuyaCloudOpenAPIEndpoint.EUROPE),
+    Country("Singapore", "65", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Sint Maarten", "1-721", TuyaCloudOpenAPIEndpoint.AMERICA),
     Country("Slovakia", "421", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Slovenia", "386", TuyaCloudOpenAPIEndpoint.EUROPE),
-    Country("Solomon Islands", "677", TuyaCloudOpenAPIEndpoint.AMERICA),
+    Country("Solomon Islands", "677", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Somalia", "252", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("South Africa", "27", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("South Korea", "82", TuyaCloudOpenAPIEndpoint.AMERICA),
@@ -1013,10 +1018,10 @@ TUYA_COUNTRIES = [
     Country("Sweden", "46", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Switzerland", "41", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Syria", "963"),
-    Country("Taiwan", "886", TuyaCloudOpenAPIEndpoint.AMERICA),
+    Country("Taiwan", "886", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Tajikistan", "992", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Tanzania", "255", TuyaCloudOpenAPIEndpoint.EUROPE),
-    Country("Thailand", "66", TuyaCloudOpenAPIEndpoint.AMERICA),
+    Country("Thailand", "66", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Togo", "228", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Tokelau", "690", TuyaCloudOpenAPIEndpoint.AMERICA),
     Country("Tonga", "676", TuyaCloudOpenAPIEndpoint.EUROPE),
@@ -1037,7 +1042,7 @@ TUYA_COUNTRIES = [
     Country("Vanuatu", "678", TuyaCloudOpenAPIEndpoint.AMERICA),
     Country("Vatican", "379", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Venezuela", "58", TuyaCloudOpenAPIEndpoint.AMERICA),
-    Country("Vietnam", "84", TuyaCloudOpenAPIEndpoint.AMERICA),
+    Country("Vietnam", "84", TuyaCloudOpenAPIEndpoint.SINGAPORE),
     Country("Wallis and Futuna", "681", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Western Sahara", "212", TuyaCloudOpenAPIEndpoint.EUROPE),
     Country("Yemen", "967", TuyaCloudOpenAPIEndpoint.EUROPE),
