@@ -1873,6 +1873,9 @@
       "total_energy": {
         "name": "Total energy"
       },
+      "all_energy": {
+        "name": "Total energy"
+      },
       "phase_a_current": {
         "name": "Phase A current"
       },
@@ -1975,10 +1978,7 @@
           "medium": "Medium",
           "bad": "Bad"
         }
-      },
-      "all_energy": {
-        "name": "Total Energy"
-      },      
+      }
     },
     "switch": {
       "key_rec": {
