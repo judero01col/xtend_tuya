@@ -523,6 +523,12 @@
             "current": {
                 "name": "Intensidad de corriente"
             },
+            "cur_current1": {
+              "name": "Intensidad de corriente 1"
+            },
+            "cur_current2": {
+              "name": "Intensidad de corriente 2"
+            },
             "current_temperature": {
                 "name": "Temperatura actual"
             },

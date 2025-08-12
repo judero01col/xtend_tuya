@@ -1283,6 +1283,12 @@
             "currentc": {
                 "name": "Current C"
             },
+            "cur_current1": {
+              "name": "Current 1"
+            },
+            "cur_current2": {
+              "name": "Current 2"
+            },
             "activepower": {
                 "name": "Active power"
             },
