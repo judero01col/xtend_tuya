@@ -169,6 +169,21 @@ CONSUMPTION_SENSORS: tuple[XTSensorEntityDescription, ...] = (
         restoredata=True,
     ),
     XTSensorEntityDescription(
+        key=XTDPCode.ADD_ELE1,
+        virtual_state=VirtualStates.STATE_COPY_TO_MULTIPLE_STATE_NAME,
+        vs_copy_delta_to_state=[
+            XTDPCode.ADD_ELE1_TODAY,
+            XTDPCode.ADD_ELE1_THIS_MONTH,
+            XTDPCode.ADD_ELE1_THIS_YEAR,
+        ],
+        translation_key="add_ele1",
+        device_class=SensorDeviceClass.ENERGY,
+        state_class=SensorStateClass.TOTAL_INCREASING,
+        native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
+        entity_registry_enabled_default=False,
+        restoredata=True,
+    ),
+     XTSensorEntityDescription(
         key=XTDPCode.ADD_ELE2,
         virtual_state=VirtualStates.STATE_COPY_TO_MULTIPLE_STATE_NAME,
         vs_copy_delta_to_state=[

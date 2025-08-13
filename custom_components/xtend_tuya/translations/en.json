@@ -2172,7 +2172,16 @@
           },
           "add_ele1": {
             "name": "Consumption 1"
-          },          
+          },
+          "add_ele1_this_month": {
+            "name": "Monthly consumption 1"
+          },
+          "add_ele1_this_year": {
+            "name": "Yearly consumption 1"
+          },
+          "add_ele1_today": {
+            "name": "Daily consumption 1"
+          },              
           "today_acc_energy1": {
             "name": "today_acc_energy1"
           },
