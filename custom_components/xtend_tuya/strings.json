@@ -1188,12 +1188,6 @@
       "currentc": {
         "name": "Current C"
       },
-      "cur_current1": {
-        "name": "Current 1"
-      },
-      "cur_current2": {
-        "name": "Current 2"
-      },
       "activepower": {
         "name": "Active power"
       },
@@ -1879,9 +1873,6 @@
       "total_energy": {
         "name": "Total energy"
       },
-      "all_energy": {
-        "name": "Total energy"
-      },
       "phase_a_current": {
         "name": "Phase A current"
       },
@@ -1984,6 +1975,63 @@
           "medium": "Medium",
           "bad": "Bad"
         }
+      },
+      "cur_power1": {
+        "name": "Power 1"
+      },
+      "cur_power2": {
+        "name": "Power 2"
+      },
+      "cur_current1": {
+        "name": "Current 1"
+      },
+      "cur_current2": {
+        "name": "Current 2"
+      },
+      "cur_voltage1": {
+        "name": "Voltage 1"
+      },
+      "cur_voltage2": {
+        "name": "Voltage 2"
+      },
+      "total_energy1": {
+        "name": "Energy 1"
+      },
+      "total_energy2": {
+        "name": "Energy 2"
+      },
+      "all_energy": {
+        "name": "Total Energy"
+      },
+      "power_type1": {
+        "name": "Power Type 1"
+      },
+      "power_type2": {
+        "name": "Power Type 2"
+      },
+      "device_state1": {
+        "name": "Device State 1"
+      },
+      "device_state2": {
+        "name": "Device State 2"
+      },
+      "add_ele1": {
+        "name": "add_ele1"
+      },
+      "add_ele2": {
+        "name": "add_ele2"
+      },
+      "today_acc_energy1": {
+        "name": "today_acc_energy1"
+      },
+      "today_acc_energy2": {
+        "name": "today_acc_energy1"
+      },
+      "today_energy_add1": {
+        "name": "today_energy_add1"
+      },
+      "today_energy_add2": {
+        "name": "today_energy_add2"
       }
     },
     "switch": {

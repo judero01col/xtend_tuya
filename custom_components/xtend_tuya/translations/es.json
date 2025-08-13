@@ -522,13 +522,7 @@
             },
             "current": {
                 "name": "Intensidad de corriente"
-            },
-            "cur_current1": {
-              "name": "Intensidad de corriente 1"
-            },
-            "cur_current2": {
-              "name": "Intensidad de corriente 2"
-            },
+            },            
             "current_temperature": {
                 "name": "Temperatura actual"
             },
@@ -582,7 +576,7 @@
             },
             "phase_b_power": {
                 "name": "Potencia de la fase B"
-            },
+            },           
             "phase_b_voltage": {
                 "name": "Tensi\u00f3n de la fase B"
             },
@@ -659,10 +653,7 @@
             },
             "total_energy": {
                 "name": "Energ\u00eda total"
-            },
-             "all_energy": {
-                "name": "Energ\u00eda total"
-            },
+            },            
             "total_operating_time": {
                 "name": "Tiempo total de funcionamiento"
             },
@@ -683,6 +674,63 @@
             },
             "water_level": {
                 "name": "Nivel del agua"
+            },
+            "cur_power1": {
+              "name": "Potencia 1"
+            },
+            "cur_power2": {
+              "name": "Potencia 2"
+            },
+            "cur_current1": {
+              "name": "Corriente 1"
+            },
+            "cur_current2": {
+              "name": "Corriente 2"
+            },
+            "cur_voltage1": {
+              "name": "Voltage 1"
+            },
+            "cur_voltage2": {
+              "name": "Voltage 2"
+            },
+            "total_energy1": {
+              "name": "Energ\u00eda 1"
+            },
+            "total_energy2": {
+              "name": "Energ\u00eda 2"
+            },
+            "all_energy": {
+                "name": "Energ\u00eda total"
+            },
+            "power_type1": {
+              "name": "Power Type 1"
+            },
+            "power_type2": {
+              "name": "Power Type 2"
+            },
+            "device_state1": {
+              "name": "Device State 1"
+            },
+            "device_state2": {
+              "name": "Device State 2"
+            },
+            "add_ele1": {
+              "name": "add_ele1"
+            },
+            "add_ele2": {
+              "name": "add_ele2"
+            },
+            "today_acc_energy1": {
+              "name": "today_acc_energy1"
+            },
+            "today_acc_energy2": {
+              "name": "today_acc_energy1"
+            },
+            "today_energy_add1": {
+              "name": "today_energy_add1"
+            },
+            "today_energy_add2": {
+              "name": "today_energy_add2"
             }
         },
         "switch": {
