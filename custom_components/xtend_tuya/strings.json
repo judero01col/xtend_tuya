@@ -1692,16 +1692,16 @@
         "name": "Daily consumption"
       },
       "add_ele2": {
-        "name": "Consumption (method B)"
+        "name": "Consumption 2"
       },
       "add_ele2_this_month": {
-        "name": "Monthly consumption (method B)"
+        "name": "Monthly consumption 2"
       },
       "add_ele2_this_year": {
-        "name": "Yearly consumption (method B)"
+        "name": "Yearly consumption 2"
       },
       "add_ele2_today": {
-        "name": "Daily consumption (method B)"
+        "name": "Daily consumption 2"
       },
       "excretion_times_day": {
         "name": "Number of excretion"
@@ -2016,11 +2016,8 @@
         "name": "Device State 2"
       },
       "add_ele1": {
-        "name": "add_ele1"
-      },
-      "add_ele22": {
-        "name": "add_ele2"
-      },
+        "name": "Consumption 1"
+      },      
       "today_acc_energy1": {
         "name": "today_acc_energy1"
       },

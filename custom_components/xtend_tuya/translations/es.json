@@ -715,10 +715,10 @@
               "name": "Device State 2"
             },
             "add_ele1": {
-              "name": "add_ele1"
+              "name": "Consumo 1"
             },
             "add_ele2": {
-              "name": "add_ele2"
+              "name": "Consumo 2"
             },
             "today_acc_energy1": {
               "name": "today_acc_energy1"
