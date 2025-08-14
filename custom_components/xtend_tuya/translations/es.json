@@ -716,13 +716,22 @@
             },
             "add_ele1": {
               "name": "Consumo 1"
-            },                  
+            },
+            "add_ele_today": {
+              "name": "Consumo Diario "
+            },
+            "add_ele_this_month": {
+              "name": "Consumo Mensual"
+            },
+            "add_ele_this_year": {
+              "name": "Consumo Anual"
+            }, 
             "add_ele1_this_month": {
               "name": "Consumo Mensual 1"
             },
             "add_ele1_this_year": {
               "name": "Consumo Anual 1"
-            },
+            },            
             "add_ele1_today": {
               "name": "Consumo Diario 1"
             },
