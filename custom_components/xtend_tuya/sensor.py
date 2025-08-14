@@ -895,14 +895,12 @@ SENSORS: dict[str, tuple[XTSensorEntityDescription, ...]] = {
         ),
           XTSensorEntityDescription(
             key=XTDPCode.POWER_TYPE_1,
-            translation_key="power_type1",
-            state_class=SensorStateClass.MEASUREMENT,
+            translation_key="power_type1",            
             entity_registry_enabled_default=True,
         ),
            XTSensorEntityDescription(
             key=XTDPCode.POWER_TYPE_2,
-            translation_key="power_type2",
-            state_class=SensorStateClass.MEASUREMENT,
+            translation_key="power_type2",            
             entity_registry_enabled_default=True,
         ),
     ),
