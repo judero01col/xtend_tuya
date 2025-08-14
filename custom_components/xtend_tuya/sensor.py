@@ -1369,6 +1369,8 @@ SENSORS: dict[str, tuple[XTSensorEntityDescription, ...]] = {
         *BATTERY_SENSORS,
     ),
     "cz" : (
+        *CONSUMPTION_SENSORS,        
+        *ELECTRICITY_SENSORS,
         XTSensorEntityDescription(
             key=XTDPCode.DEVICE_STATE_1,
             translation_key="device_state1",                        
