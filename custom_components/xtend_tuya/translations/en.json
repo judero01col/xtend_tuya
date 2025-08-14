@@ -2181,12 +2181,12 @@
           },
           "add_ele1_today": {
             "name": "Daily consumption 1"
-          },              
+          },
           "today_acc_energy1": {
-            "name": "today_acc_energy1"
+            "name": "Today's energy 1"
           },
           "today_acc_energy2": {
-            "name": "today_acc_energy1"
+            "name": "Today's energy 2"
           },
           "today_energy_add1": {
             "name": "today_energy_add1"
