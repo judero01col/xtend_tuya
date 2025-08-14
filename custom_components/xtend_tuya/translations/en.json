@@ -1845,19 +1845,7 @@
             },
             "add_ele_today": {
                 "name": "Daily consumption"
-            },
-            "add_ele2": {
-                "name": "Consumption 2"
-            },
-            "add_ele2_this_month": {
-                "name": "Monthly consumption 2"
-            },
-            "add_ele2_this_year": {
-                "name": "Yearly consumption 2"
-            },
-            "add_ele2_today": {
-                "name": "Daily consumption 2"
-            },
+            },            
             "excretion_times_day": {
                 "name": "Number of excretion"
             },
@@ -2150,10 +2138,10 @@
             "name": "Voltage 2"
           },
           "total_energy1": {
-            "name": "Energy 1"
+            "name": "Total Energy 1"
           },
           "total_energy2": {
-            "name": "Energy 2"
+            "name": "Total Energy 2"
           },
           "all_energy": {
             "name": "Total Energy"
@@ -2174,19 +2162,31 @@
             "name": "Consumption 1"
           },
           "add_ele1_this_month": {
-            "name": "Monthly consumption 1"
+            "name": "Monthly Consumption 1"
           },
           "add_ele1_this_year": {
-            "name": "Yearly consumption 1"
+            "name": "Yearly Consumption 1"
           },
           "add_ele1_today": {
-            "name": "Daily consumption 1"
+            "name": "Daily Consumption 1"
+          },
+          "add_ele2": {
+              "name": "Consumption 2"
+          },
+          "add_ele2_this_month": {
+              "name": "Monthly Consumption 2"
+          },
+          "add_ele2_this_year": {
+              "name": "Yearly Consumption 2"
+          },
+          "add_ele2_today": {
+              "name": "Daily Consumption 2"
           },
           "today_acc_energy1": {
-            "name": "Today's energy 1"
+            "name": "Today's Energy 1"
           },
           "today_acc_energy2": {
-            "name": "Today's energy 2"
+            "name": "Today's Energy 2"
           },
           "today_energy_add1": {
             "name": "today_energy_add1"

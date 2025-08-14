@@ -694,13 +694,13 @@
               "name": "Voltage 2"
             },
             "total_energy1": {
-              "name": "Energ\u00eda 1"
+              "name": "Energ\u00eda Total 1"
             },
             "total_energy2": {
-              "name": "Energ\u00eda 2"
+              "name": "Energ\u00eda Total 2"
             },
             "all_energy": {
-                "name": "Energ\u00eda total"
+                "name": "Energ\u00eda Total"
             },
             "power_type1": {
               "name": "Power Type 1"
@@ -718,25 +718,25 @@
               "name": "Consumo 1"
             },                  
             "add_ele1_this_month": {
-              "name": "Consumo mensual 1"
+              "name": "Consumo Mensual 1"
             },
             "add_ele1_this_year": {
-              "name": "Consumo anual 1"
+              "name": "Consumo Anual 1"
             },
             "add_ele1_today": {
-              "name": "Consumo diario 1"
+              "name": "Consumo Diario 1"
             },
             "add_ele2": {
               "name": "Consumo 2"
             },
             "add_ele2_this_month": {
-            "name": "Consumo mensual 2"
+            "name": "Consumo Nensual 2"
             },
             "add_ele2_this_year": {
-              "name": "Consumo anual 2"
+              "name": "Consumo Anual 2"
             },
             "add_ele2_today": {
-              "name": "Consumo diario 2"
+              "name": "Consumo Diario 2"
             },
             "today_acc_energy1": {
               "name": "Energ\u00eda de Hoy  1"
