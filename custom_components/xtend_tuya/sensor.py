@@ -230,11 +230,7 @@ CONSUMPTION_SENSORS: tuple[XTSensorEntityDescription, ...] = (
         key=XTDPCode.ELECTRIC,
         virtual_state=VirtualStates.STATE_COPY_TO_MULTIPLE_STATE_NAME
         | VirtualStates.STATE_SUMMED_IN_REPORTING_PAYLOAD,
-        vs_copy_to_state=[
-            XTDPCode.ELECTRIC_TODAY,
-            XTDPCode.ELECTRIC_THIS_MONTH,
-            XTDPCode.ELECTRIC_THIS_YEAR,
-        ],
+        vs_copy_to_state=[XTDPCode.ELECTRIC_TODAY,XTDPCode.ELECTRIC_THIS_MONTH,XTDPCode.ELECTRIC_THIS_YEAR],
         translation_key="electric",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -426,7 +422,7 @@ CONSUMPTION_SENSORS: tuple[XTSensorEntityDescription, ...] = (
     XTSensorEntityDescription(
         key=XTDPCode.ADD_ELE1,
         virtual_state=VirtualStates.STATE_COPY_TO_MULTIPLE_STATE_NAME | VirtualStates.STATE_SUMMED_IN_REPORTING_PAYLOAD,
-        vs_copy_delta_to_state=[XTDPCode.ADD_ELE1_TODAY,XTDPCode.ADD_ELE1_THIS_MONTH,XTDPCode.ADD_ELE1_THIS_YEAR],
+        vs_copy_to_state=[XTDPCode.ADD_ELE1_TODAY,XTDPCode.ADD_ELE1_THIS_MONTH,XTDPCode.ADD_ELE1_THIS_YEAR],
         translation_key="add_ele1",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.MEASUREMENT,
@@ -450,7 +446,7 @@ CONSUMPTION_SENSORS: tuple[XTSensorEntityDescription, ...] = (
         virtual_state=VirtualStates.STATE_SUMMED_IN_REPORTING_PAYLOAD,
         translation_key="add_ele1_this_month",
         device_class=SensorDeviceClass.ENERGY,
-        state_class=SensorStateClass.TOTAL_INCREASING,
+        state_class=SensorStateClass.TOTAL,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         entity_registry_enabled_default=True,
         restoredata=True,
@@ -458,7 +454,7 @@ CONSUMPTION_SENSORS: tuple[XTSensorEntityDescription, ...] = (
     ),
     XTSensorEntityDescription(
         key=XTDPCode.ADD_ELE1_THIS_YEAR,
-        virtual_state=VirtualStates.STATE_SUMMED_IN_REPORTING_PAYLOAD,
+        virtual_state=VirtualStates.STATE_COPY_TO_MULTIPLE_STATE_NAME,
         translation_key="add_ele1_this_year",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
@@ -470,7 +466,7 @@ CONSUMPTION_SENSORS: tuple[XTSensorEntityDescription, ...] = (
     XTSensorEntityDescription(
         key=XTDPCode.ADD_ELE2,
         virtual_state=VirtualStates.STATE_COPY_TO_MULTIPLE_STATE_NAME  | VirtualStates.STATE_SUMMED_IN_REPORTING_PAYLOAD,
-        vs_copy_delta_to_state=[XTDPCode.ADD_ELE2_TODAY,XTDPCode.ADD_ELE2_THIS_MONTH,XTDPCode.ADD_ELE2_THIS_YEAR],
+        vs_copy_to_state=[XTDPCode.ADD_ELE2_TODAY,XTDPCode.ADD_ELE2_THIS_MONTH,XTDPCode.ADD_ELE2_THIS_YEAR],
         translation_key="add_ele2",
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.MEASUREMENT,
