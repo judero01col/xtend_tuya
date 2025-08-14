@@ -1371,29 +1371,23 @@ SENSORS: dict[str, tuple[XTSensorEntityDescription, ...]] = {
     "cz": (
         XTSensorEntityDescription(
             key=XTDPCode.DEVICE_STATE_1,
-            translation_key="device_state1",            
-            device_class=None,  # No hay clase específica
-            state_class=None,   # No es numérico, por eso None
-            ative_unit_of_measurement=None,
+            translation_key="device_state1",                        
             entity_registry_enabled_default=True,
         ),
          XTSensorEntityDescription(
             key=XTDPCode.DEVICE_STATE_2,
-            translation_key="device_state2",            
-            device_class=None,  # No hay clase específica
-            state_class=None,   # No es numérico, por eso None
-            ative_unit_of_measurement=None,
+            translation_key="device_state2",          
             entity_registry_enabled_default=True,
         ),
           XTSensorEntityDescription(
             key=XTDPCode.POWER_TYPE_1,
-            translation_key="power_type1",            
+            translation_key="power_type1",
             state_class=SensorStateClass.MEASUREMENT,
             entity_registry_enabled_default=True,
         ),
            XTSensorEntityDescription(
             key=XTDPCode.POWER_TYPE_2,
-            translation_key="power_type2",            
+            translation_key="power_type2",
             state_class=SensorStateClass.MEASUREMENT,
             entity_registry_enabled_default=True,
         ),
