@@ -421,7 +421,7 @@ CONSUMPTION_SENSORS: tuple[XTSensorEntityDescription, ...] = (
     ),
     XTSensorEntityDescription(
         key=XTDPCode.ADD_ELE1,
-        virtual_state=VirtualStates.STATE_COPY_TO_MULTIPLE_STATE_NAME | VirtualStates.STATE_SUMMED_IN_REPORTING_PAYLOAD,
+        virtual_state=VirtualStates.STATE_COPY_TO_MULTIPLE_STATE_NAME,
         vs_copy_to_state=[XTDPCode.ADD_ELE1_TODAY,XTDPCode.ADD_ELE1_THIS_MONTH,XTDPCode.ADD_ELE1_THIS_YEAR],
         translation_key="add_ele1",
         device_class=SensorDeviceClass.ENERGY,
@@ -454,10 +454,10 @@ CONSUMPTION_SENSORS: tuple[XTSensorEntityDescription, ...] = (
     ),
     XTSensorEntityDescription(
         key=XTDPCode.ADD_ELE1_THIS_YEAR,
-        virtual_state=VirtualStates.STATE_COPY_TO_MULTIPLE_STATE_NAME,
+        virtual_state=VirtualStates.STATE_SUMMED_IN_REPORTING_PAYLOAD,
         translation_key="add_ele1_this_year",
         device_class=SensorDeviceClass.ENERGY,
-        state_class=SensorStateClass.TOTAL_INCREASING,
+        state_class=SensorStateClass.MEASUREMENT,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
         entity_registry_enabled_default=True,
         restoredata=True,
