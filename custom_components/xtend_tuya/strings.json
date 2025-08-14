@@ -2032,13 +2032,7 @@
       },
       "today_acc_energy2": {
         "name": "Today's Energy 2"
-      },
-      "today_energy_add1": {
-        "name": "today_energy_add1"
-      },
-      "today_energy_add2": {
-        "name": "today_energy_add2"
-      }
+      }     
     },
     "switch": {
       "key_rec": {
