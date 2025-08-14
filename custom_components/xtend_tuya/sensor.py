@@ -423,9 +423,9 @@ CONSUMPTION_SENSORS: tuple[XTSensorEntityDescription, ...] = (
         entity_registry_enabled_default=False,
         restoredata=True,
     ),
-     XTSensorEntityDescription(
+    XTSensorEntityDescription(
         key=XTDPCode.ADD_ELE1,
-        virtual_state=VirtualStates.STATE_COPY_TO_MULTIPLE_STATE_NAME,
+        virtual_state=VirtualStates.STATE_COPY_TO_MULTIPLE_STATE_NAME  | VirtualStates.STATE_SUMMED_IN_REPORTING_PAYLOAD,
         vs_copy_delta_to_state=[XTDPCode.ADD_ELE1_TODAY,XTDPCode.ADD_ELE1_THIS_MONTH,XTDPCode.ADD_ELE1_THIS_YEAR,],
         translation_key="add_ele1",
         device_class=SensorDeviceClass.ENERGY,
@@ -469,7 +469,7 @@ CONSUMPTION_SENSORS: tuple[XTSensorEntityDescription, ...] = (
     ),   
     XTSensorEntityDescription(
         key=XTDPCode.ADD_ELE2,
-        virtual_state=VirtualStates.STATE_COPY_TO_MULTIPLE_STATE_NAME,
+        virtual_state=VirtualStates.STATE_COPY_TO_MULTIPLE_STATE_NAME  | VirtualStates.STATE_SUMMED_IN_REPORTING_PAYLOAD,
         vs_copy_delta_to_state=[XTDPCode.ADD_ELE2_TODAY,XTDPCode.ADD_ELE2_THIS_MONTH,XTDPCode.ADD_ELE2_THIS_YEAR],
         translation_key="add_ele2",
         device_class=SensorDeviceClass.ENERGY,
