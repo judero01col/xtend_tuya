@@ -883,6 +883,28 @@ SENSORS: dict[str, tuple[XTSensorEntityDescription, ...]] = {
             restoredata=True,
             refresh_device_after_load=True,
         ),
+        XTSensorEntityDescription(
+            key=XTDPCode.DEVICE_STATE_1,
+            translation_key="device_state1",                        
+            entity_registry_enabled_default=True,
+        ),
+         XTSensorEntityDescription(
+            key=XTDPCode.DEVICE_STATE_2,
+            translation_key="device_state2",          
+            entity_registry_enabled_default=True,
+        ),
+          XTSensorEntityDescription(
+            key=XTDPCode.POWER_TYPE_1,
+            translation_key="power_type1",
+            state_class=SensorStateClass.MEASUREMENT,
+            entity_registry_enabled_default=True,
+        ),
+           XTSensorEntityDescription(
+            key=XTDPCode.POWER_TYPE_2,
+            translation_key="power_type2",
+            state_class=SensorStateClass.MEASUREMENT,
+            entity_registry_enabled_default=True,
+        ),
     ),
     "cl": (*BATTERY_SENSORS,),
     "dbl": (
@@ -1367,31 +1389,7 @@ SENSORS: dict[str, tuple[XTSensorEntityDescription, ...]] = {
         *TEMPERATURE_SENSORS,
         *HUMIDITY_SENSORS,
         *BATTERY_SENSORS,
-    ),
-    "cz": (
-        XTSensorEntityDescription(
-            key=XTDPCode.DEVICE_STATE_1,
-            translation_key="device_state1",                        
-            entity_registry_enabled_default=True,
-        ),
-         XTSensorEntityDescription(
-            key=XTDPCode.DEVICE_STATE_2,
-            translation_key="device_state2",          
-            entity_registry_enabled_default=True,
-        ),
-          XTSensorEntityDescription(
-            key=XTDPCode.POWER_TYPE_1,
-            translation_key="power_type1",
-            state_class=SensorStateClass.MEASUREMENT,
-            entity_registry_enabled_default=True,
-        ),
-           XTSensorEntityDescription(
-            key=XTDPCode.POWER_TYPE_2,
-            translation_key="power_type2",
-            state_class=SensorStateClass.MEASUREMENT,
-            entity_registry_enabled_default=True,
-        ),
-    ),
+    )
 }
 
 # Socket (duplicate of `kg`)
