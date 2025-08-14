@@ -2145,19 +2145,7 @@
           },
           "all_energy": {
             "name": "Total Energy"
-          },
-          "power_type1": {
-            "name": "Power Type 1"
-          },
-          "power_type2": {
-            "name": "Power Type 2"
-          },
-          "device_state1": {
-            "name": "Device State 1"
-          },
-          "device_state2": {
-            "name": "Device State 2"
-          },
+          },          
           "add_ele1": {
             "name": "Consumption 1"
           },

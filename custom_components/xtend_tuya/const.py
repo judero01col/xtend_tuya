@@ -829,12 +829,7 @@ class XTDPCode(StrEnum):
     CUR_VOLTAGE_2 = "cur_voltage2"
     TOTAL_ENERGY_1 = "total_energy1"
     TOTAL_ENERGY_2 = "total_energy2"
-    ALL_ENERGY = "all_energy"
-    #Pend.    
-    DEVICE_STATE_1 = "device_state1"
-    DEVICE_STATE_2 = "device_state2"
-    POWER_TYPE_1 = "power_type1"
-    POWER_TYPE_2 = "power_type2"
+    ALL_ENERGY = "all_energy"  
 
 @dataclass
 class Country:
